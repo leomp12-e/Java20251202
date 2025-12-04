@@ -40,12 +40,39 @@ static ArrayList<String> m1(String s)  {
 		return list;
 }
 
-static void m3a(int [] matriz) {
+static Integer m3a(int [] matriz) {
+	int max = Integer.MIN_VALUE;
+	if (m.length < 3)
+		return null;
+	int cols = m[0].length;
+	if(cols <= 3)
+		return null;
+	for(int i = 1; i < m.length; i++) {
+		if(m[i].length != cols || m[i].length < 3)
+			return null;
+		
+		
+		for(int i = 0; i <= m.length-3;i++) {
+			for(int j = 0; j < m[i].length-3;j++) {
+				for(int k = i; k <= i + 2;k++) {
+					for(int l = j; l <= j + 2; l++) {
+						for(int l = j; l<= j + 2; l++) {
+							suma += m[k][l];
+							if (max < suma)
+								max = suma;
+						}
+					}
+				}
+			}
+		}
+	}
 	
+	return max;
 }
 
 static void m3b(int [] minas) {
-	int columna,fila,minas;
+	Random r = new Random();
+	int [][] tablero;
 	
 }
 
