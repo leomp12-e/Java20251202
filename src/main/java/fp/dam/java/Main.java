@@ -18,17 +18,26 @@ import java.util.ArrayList;
 	 En caso contrario retorna null.
 */
 
-static void m1(String [] cadena)  {
-	ArrayList<String> lista = new ArrayList<>();
-	
-	lista.add("Tabla");
-	lista.add("Habla");
-	lista.add("Entabla");
-	
-}
+static ArrayList<String> m1(String s)  {
+	ArrayList<String> list = new ArrayList<>();
+	int inicio = 0;
+	for(int i = 1; i < s.length(); i++) {
+		if (s.charAt(i) != s.charAt(i - 1)) {
+			if (i - inicio >= 2)
+				list.add(s.substring(inicio, i));
+			inicio = i;
+		}
+	}
+	if (i - inicio >= 2)
+		list.add(s.substring(inicio,i));
+	return list;
 
-static void m2(String [] cadena) {
-	
+	static ArrayList<String> m2(String s) {
+		ArrayList<String> list = new ArrayList<>();
+		Matcher m = Pattern.compile("(.)\\1+").matcher(s);
+		while (m.find())
+			list.add(m.group());
+		return list;
 }
 
 static void m3a(int [] matriz) {
